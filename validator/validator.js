@@ -1,36 +1,27 @@
-function validate() {
+
+const validators = [
+    {name: "firstName", validator: new RegExp("[a-z0-9]{1,15}"), errorMessage: "Invalid first name\n"},
+    {name: "lastName", validator: new RegExp("[a-z0-9]{1,15}"), errorMessage: "Invalid last name\n"},
+    {name: "egn", validator: new RegExp("[0-9]{10}"), errorMessage: "Invalid EGN\n"},
+    {name: "age", validator: new RegExp("([1][8-9]|[2-9][0-9]|[1][0-1][0-8])"), errorMessage: "Invalid age\n"},
+    {name: "address", validator: new RegExp("[a-z0-9]{1,100}"), errorMessage: "Invalid address\n"},
+    {name: "password", validator: new RegExp("[a-z0-9]{6,18}"), errorMessage: "Invalid password\n"}
+]
+
+function validate(validators) {
     let err = "";
-    err += nameValidate(document.getElementById("firstName").value) ? "" : "Invalid first name\n"
-    err += nameValidate(document.getElementById("lastName").value) ? "" : "Invalid last name\n"
-    err += egnValidate(document.getElementById("egn").value) ? "" : "Invalid EGN\n"
-    err += ageValidate(document.getElementById("age").value) ? "" : "Invalid age\n"
-    err += addressValidate(document.getElementById("address").value)? "" : "Invalid address\n"
-    err += passwordValidate(document.getElementById("password").value) ? "" : "Invalid password\n"
-    window.alert(err === "" ? "Correct" : err)
+    validators.forEach(function(x) {
+        err += x.validator.test(document.getElementById(x.name).value) ? "" : x.errorMessage
+    })
+    return err
 }
 
-function nameValidate(name) {
-    return (name.length >= 1 && name.length <= 15)
+function showValidationResult() {
+    const errors = validate(validators)
+    if(errors.length === 0) {
+        window.alert("Correct")
+    }
+    else{
+        window.alert(errors)
+    }
 }
-
-function egnValidate(egn) {
-    return (egn.length === 10 && new RegExp("[0-9]").test(egn))
-}
-
-function ageValidate(age) {
-    return (new RegExp("[0-9]").test(age) && age >= 18 && age <= 118)
-}
-
-function addressValidate(address) {
-    return (address.length >= 1 && address.length <= 100)
-}
-
-function passwordValidate(password) {
-    return (new RegExp("[a-z0-9]").test(password) && password.length >= 6 && password.length <= 18)
-}
-
-module.exports.nameValidate = nameValidate;
-module.exports.egnValidate = egnValidate;
-module.exports.ageValidate = ageValidate;
-module.exports.addressValidate = addressValidate;
-module.exports.passwordValidate = passwordValidate;
