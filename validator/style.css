@@ -1,0 +1,29 @@
+body {
+    background-color: #cc791a;
+}
+label {
+    width:180px;
+    clear:left;
+    text-align:right;
+    padding-right:10px;
+    color: #fff;
+    font-size: 19pt;
+    font-weight: bold;
+}
+
+input, label, button {
+    float:left;
+    font-size:18pt;
+    margin-bottom: 5px;
+    height: 30px;
+}
+button {
+    position: relative;
+    margin-top: 70px;
+    margin-left:-375px;
+    height: 80px;
+    width: 375px;
+    color: #cc791a;
+    font-weight: bold;
+    font-size:30pt;
+}
