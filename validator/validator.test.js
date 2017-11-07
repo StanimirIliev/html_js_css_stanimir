@@ -7,10 +7,10 @@ const nameExp = [
 ];
 
 nameExp.forEach(function(t) {
-    const res = validator.isNameValid(t[0]);
-    test('expect isValidName(' + t[0] + ') to be ' + t[1], () => {
+    const res = validator.nameValidate(t[0]);
+    test('expect nameValidate(' + t[0] + ') to be ' + t[1], () => {
         expect(res).toBe(t[1]);
-});
+    });
 });
 
 const egnExp = [
@@ -21,8 +21,8 @@ const egnExp = [
 ];
 
 egnExp.forEach(function(t) {
-    const res = validator.isEgnValid(t[0]);
-    test('expect isValidEgn(' + t[0] + ') to be ' + t[1], () => {
+    const res = validator.egnValidate(t[0]);
+    test('expect egnValidate(' + t[0] + ') to be ' + t[1], () => {
         expect(res).toBe(t[1]);
 });
 });
@@ -35,8 +35,8 @@ const ageExp = [
 ];
 
 ageExp.forEach(function(t) {
-    const res = validator.isAgeValid(t[0]);
-    test('expect isValidAge(' + t[0] + ') to be ' + t[1], () => {
+    const res = validator.ageValidate(t[0]);
+    test('expect ageValidate(' + t[0] + ') to be ' + t[1], () => {
         expect(res).toBe(t[1]);
 });
 });
@@ -51,8 +51,8 @@ const addressExp = [
 ];
 
 addressExp.forEach(function(t) {
-    const res = validator.isAddressValid(t[0]);
-    test('expect isAddressValid(' + t[0] + ') to be ' + t[1], () => {
+    const res = validator.addressValidate(t[0]);
+    test('expect addressValidate(' + t[0] + ') to be ' + t[1], () => {
         expect(res).toBe(t[1]);
 });
 });
@@ -67,8 +67,8 @@ const passExp = [
 ];
 
 passExp.forEach(function(t) {
-    const res = validator.isPasswordValid(t[0]);
-    test('expect isPasswordValid(' + t[0] + ') to be ' + t[1], () => {
+    const res = validator.passwordValidate(t[0]);
+    test('expect passwordValidate(' + t[0] + ') to be ' + t[1], () => {
         expect(res).toBe(t[1]);
 });
 });
